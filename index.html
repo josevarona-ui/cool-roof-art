@@ -158,6 +158,32 @@
     .launch h2 { margin-left:auto; margin-right:auto; }
     .launch .lede { margin-left:auto; margin-right:auto; max-width:60ch; }
     @media (max-width:860px){ .split{ grid-template-columns:1fr; } .art-media{ aspect-ratio:16/10; } }
+
+    .media .cards { margin-top:2.5rem; }
+    .media-stats { margin-top:2.2rem; background:var(--deep); border-radius:14px; padding:2rem clamp(1.4rem,3vw,2.4rem); display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+    .media-stats b { display:block; font-family:var(--display); font-weight:900; font-size:clamp(1.4rem,2.4vw,1.9rem); line-height:1; background:var(--spectrum); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .media-stats span { display:block; margin-top:.55rem; color:#c9d6d9; font-size:.92rem; line-height:1.5; }
+    .media .closer { margin-top:2.2rem; font-size:1.12rem; color:var(--ink); max-width:62ch; font-weight:500; }
+    @media (max-width:760px){ .media-stats{ grid-template-columns:1fr; gap:1.4rem; } }
+
+    .maps { background:#EAEFF1; }
+    .maps .flex { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,4vw,3.5rem); align-items:center; }
+    @media (max-width:860px){ .maps .flex{ grid-template-columns:1fr; } }
+    .maps h2 { font-size:clamp(1.9rem,3.6vw,2.8rem); font-weight:900; max-width:16ch; }
+    .maps .vp { color:#3a4148; font-size:1.06rem; margin-top:1rem; max-width:52ch; }
+    .maps .vp em { font-style:italic; color:var(--deep); }
+    .maps .vp.two { color:var(--ink); }
+    .map-card { background:var(--deep); border-radius:14px; padding:1.4rem; }
+    .map-card .lbl { font-family:var(--display); font-weight:800; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:#9FB2BD; margin-bottom:1rem; }
+    .map-vis { position:relative; aspect-ratio:16/11; border-radius:10px; overflow:hidden; background:#20272D; }
+    .map-grid { position:absolute; top:0; left:0; right:0; bottom:0; opacity:.5;
+      background: repeating-linear-gradient(0deg,#39434C 0 1px,transparent 1px 40px), repeating-linear-gradient(90deg,#39434C 0 1px,transparent 1px 40px); }
+    .map-roof { position:absolute; top:34%; left:38%; width:26%; height:34%; border-radius:4px; background:var(--spectrum); box-shadow:0 6px 20px rgba(0,0,0,.4); }
+    .map-pin { position:absolute; top:22%; left:47%; width:24px; height:24px; }
+    .map-pin span { position:absolute; inset:0; background:var(--p1); border-radius:50% 50% 50% 0; transform:rotate(-45deg); box-shadow:0 3px 8px rgba(0,0,0,.4); }
+    .map-pin span::after { content:""; position:absolute; top:7px; left:7px; width:10px; height:10px; background:#fff; border-radius:50%; }
+    .map-search { position:absolute; left:12px; bottom:12px; right:12px; background:#fff; color:#3a4148; font-size:.82rem; padding:.55rem .8rem; border-radius:40px; box-shadow:0 4px 14px rgba(0,0,0,.25); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    @media (max-width:760px){ .map-pin{ display:block; } }
   </style>
 </head>
 <body>
@@ -340,6 +366,28 @@
     </div>
   </section>
 
+  <!-- FOUND ON THE MAP -->
+  <section class="section maps" id="maps">
+    <div class="wrap flex">
+      <div>
+        <p class="eyebrow pig">Found on the map</p>
+        <h2>The first thing they see is the satellite view.</h2>
+        <p class="vp">Before anyone visits, they look you up &mdash; and Google Maps opens on the aerial image of your address. For most buildings that's a gray blur no one remembers. With a Gerada mural on the roof, your address <em>looks like something</em> the moment it loads.</p>
+        <p class="vp">Every search for your location, every set of directions, every satellite pass that refreshes the imagery puts your art back in front of people &mdash; long after the paint is dry, at no extra cost.</p>
+        <p class="vp two"><b>A landmark works around the clock.</b> The plane passes in seconds; the map is forever.</p>
+      </div>
+      <div class="map-card">
+        <div class="lbl">Your address on the map</div>
+        <div class="map-vis">
+          <div class="map-grid"></div>
+          <div class="map-roof"></div>
+          <div class="map-pin"><span></span></div>
+          <div class="map-search">⌕ &nbsp;1234 Your Street, Miami FL</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- BEFORE / WASTED SPACE (full-bleed aerial) -->
   <section class="before" id="before">
     <figure class="before-media">
@@ -411,6 +459,7 @@
       </figure>
     </div>
   </section>
+
 
   <!-- FIRST COMMISSION / MIAMI LAUNCH -->
   <section class="section launch" id="work">
